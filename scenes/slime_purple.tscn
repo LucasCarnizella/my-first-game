@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://jp6rihkdf072"]
 
-[ext_resource type="Texture2D" uid="uid://dl83ns4duigl8" path="res://assets/sprites/slime_purple.png" id="1_amx1h"]
-[ext_resource type="PackedScene" uid="uid://cxlwax21tsxvo" path="res://scenes/danger_zone.tscn" id="2_sl610"]
+[ext_resource type="Script" uid="uid://j4l0n53xe2du" path="res://scripts/slime.gd" id="1_2p8uo"]
+[ext_resource type="Texture2D" uid="uid://dl83ns4duigl8" path="res://assets/sprites/slime_purple.png" id="2_1dhrg"]
+[ext_resource type="PackedScene" uid="uid://cxlwax21tsxvo" path="res://scenes/danger_zone.tscn" id="3_m27ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sl610"]
-atlas = ExtResource("1_amx1h")
+atlas = ExtResource("2_1dhrg")
 region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqlb8"]
-atlas = ExtResource("1_amx1h")
+atlas = ExtResource("2_1dhrg")
 region = Rect2(24, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sukaf"]
-atlas = ExtResource("1_amx1h")
+atlas = ExtResource("2_1dhrg")
 region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ff8lp"]
-atlas = ExtResource("1_amx1h")
+atlas = ExtResource("2_1dhrg")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_itvj6"]
@@ -42,7 +43,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itvj6"]
 size = Vector2(10, 12)
 
-[node name="Sime Purple" type="Node2D" unique_id=1200949067]
+[node name="Slime Purple" type="Node2D" unique_id=1200949067]
+script = ExtResource("1_2p8uo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=902662018]
 position = Vector2(0, -12)
@@ -52,8 +54,24 @@ autoplay = "idle"
 frame = 3
 frame_progress = 0.52034914
 
-[node name="Danger Zone" parent="." unique_id=1137575188 instance=ExtResource("2_sl610")]
+[node name="Danger Zone" parent="." unique_id=1137575188 instance=ExtResource("3_m27ho")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Danger Zone" unique_id=2070000889]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_itvj6")
+
+[node name="RayCastDirectRight" type="RayCast2D" parent="." unique_id=1143597922]
+position = Vector2(0, -5)
+target_position = Vector2(10, 0)
+
+[node name="RayCastGroundRight" type="RayCast2D" parent="." unique_id=775129514]
+position = Vector2(10, -5)
+target_position = Vector2(0, 5)
+
+[node name="RayCastDirectLeft" type="RayCast2D" parent="." unique_id=2093788320]
+position = Vector2(0, -5)
+target_position = Vector2(-10, 0)
+
+[node name="RayCastGroundLeft" type="RayCast2D" parent="." unique_id=67834403]
+position = Vector2(-10, -5)
+target_position = Vector2(0, 5)
