@@ -148,7 +148,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -261,9 +261,9 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=358927168]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_itvj6")
-animation = &"roll"
+animation = &"death"
 autoplay = "idle"
-frame = 7
+frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1772043740]
